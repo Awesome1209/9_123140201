@@ -33,6 +33,12 @@ Notes | Favorit | AI | Profile
 
 ---
 
+## 📱 Hasil Video & Screenshot
+
+### 🎥 Demo Video
+
+> **Tonton demo aplikasi di sini:** > [🔗 Video Demo Aplikasi - Google Drive](https://drive.google.com/drive/folders/1_LfpLpUr39LGJHy_cD_H-1eySeB6txRK)
+
 ## 📸 Screenshot Dokumentasi
 
 | Notes Page | AI Assistant Page |
