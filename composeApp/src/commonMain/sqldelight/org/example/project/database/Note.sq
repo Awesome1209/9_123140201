@@ -1,0 +1,158 @@
+CREATE TABLE Note (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    remote_id INTEGER,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    category TEXT NOT NULL,
+    is_favorite INTEGER NOT NULL DEFAULT 0,
+    sync_status TEXT NOT NULL DEFAULT 'PENDING',
+    sync_action TEXT NOT NULL DEFAULT 'CREATE',
+    is_deleted INTEGER NOT NULL DEFAULT 0,
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL
+);
+
+selectAll:
+SELECT * FROM Note ORDER BY updated_at DESC;
+
+selectVisibleNotes:
+SELECT * FROM Note
+WHERE is_deleted = 0
+ORDER BY updated_at DESC;
+
+selectVisibleNotesOldest:
+SELECT * FROM Note
+WHERE is_deleted = 0
+ORDER BY updated_at ASC;
+
+selectVisibleNotesByTitle:
+SELECT * FROM Note
+WHERE is_deleted = 0
+ORDER BY title COLLATE NOCASE ASC;
+
+selectFavorites:
+SELECT * FROM Note
+WHERE is_deleted = 0 AND is_favorite = 1
+ORDER BY updated_at DESC;
+
+selectFavoritesOldest:
+SELECT * FROM Note
+WHERE is_deleted = 0 AND is_favorite = 1
+ORDER BY updated_at ASC;
+
+selectFavoritesByTitle:
+SELECT * FROM Note
+WHERE is_deleted = 0 AND is_favorite = 1
+ORDER BY title COLLATE NOCASE ASC;
+
+selectById:
+SELECT * FROM Note
+WHERE id = ? AND is_deleted = 0;
+
+searchNotes:
+SELECT * FROM Note
+WHERE is_deleted = 0
+  AND (title LIKE ? OR content LIKE ? OR category LIKE ?)
+ORDER BY updated_at DESC;
+
+searchFavoriteNotes:
+SELECT * FROM Note
+WHERE is_deleted = 0
+  AND is_favorite = 1
+  AND (title LIKE ? OR content LIKE ? OR category LIKE ?)
+ORDER BY updated_at DESC;
+
+selectPendingSync:
+SELECT * FROM Note
+WHERE sync_status IN ('PENDING', 'FAILED') OR sync_action != 'NONE'
+ORDER BY updated_at ASC;
+
+selectFailedSync:
+SELECT * FROM Note
+WHERE sync_status = 'FAILED'
+ORDER BY updated_at ASC;
+
+insertNote:
+INSERT INTO Note(
+    remote_id,
+    title,
+    content,
+    category,
+    is_favorite,
+    sync_status,
+    sync_action,
+    is_deleted,
+    created_at,
+    updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+lastInsertRowId:
+SELECT last_insert_rowid();
+
+updateNote:
+UPDATE Note
+SET title = ?,
+    content = ?,
+    category = ?,
+    sync_status = ?,
+    sync_action = ?,
+    updated_at = ?
+WHERE id = ?;
+
+toggleFavorite:
+UPDATE Note
+SET is_favorite = ?,
+    sync_status = ?,
+    sync_action = ?,
+    updated_at = ?
+WHERE id = ?;
+
+softDeleteNote:
+UPDATE Note
+SET is_deleted = 1,
+    sync_status = ?,
+    sync_action = 'DELETE',
+    updated_at = ?
+WHERE id = ?;
+
+deletePermanently:
+DELETE FROM Note
+WHERE id = ?;
+
+markSynced:
+UPDATE Note
+SET remote_id = ?,
+    sync_status = 'SYNCED',
+    sync_action = 'NONE',
+    updated_at = ?
+WHERE id = ?;
+
+markSyncFailed:
+UPDATE Note
+SET sync_status = 'FAILED',
+    updated_at = ?
+WHERE id = ?;
+
+updateSyncStatus:
+UPDATE Note
+SET sync_status = ?,
+    updated_at = ?
+WHERE id = ?;
+
+updateRemoteId:
+UPDATE Note
+SET remote_id = ?,
+    updated_at = ?
+WHERE id = ?;
+
+countNotes:
+SELECT COUNT(*) FROM Note
+WHERE is_deleted = 0;
+
+countFavorites:
+SELECT COUNT(*) FROM Note
+WHERE is_deleted = 0 AND is_favorite = 1;
+
+countPendingSync:
+SELECT COUNT(*) FROM Note
+WHERE sync_status IN ('PENDING', 'FAILED') OR sync_action != 'NONE';

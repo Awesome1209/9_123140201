@@ -1,0 +1,7 @@
+# Copy this file to local.properties, then fill your own Gemini API key.
+# DO NOT commit local.properties to GitHub.
+
+# Example Windows SDK location. Android Studio usually creates this line automatically.
+# sdk.dir=C\:\\Users\\awise\\AppData\\Local\\Android\\Sdk
+
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
