@@ -33,6 +33,30 @@ Notes | Favorit | AI | Profile
 
 ---
 
+## 📸 Screenshot Dokumentasi
+
+| Notes Page | AI Assistant Page |
+| :---: | :---: |
+| <img width="720" height="1600" alt="Tugas9-NotesPage" src="ISI_LINK_SCREENSHOT_NOTES_PAGE" /> | <img width="720" height="1600" alt="Tugas9-AIAssistant" src="ISI_LINK_SCREENSHOT_AI_ASSISTANT" /> |
+| Notes tetap menjadi fitur utama aplikasi. | Halaman AI Assistant dengan quick actions dan chat input. |
+
+| Multi-turn Conversation | Summarize Note |
+| :---: | :---: |
+| <img width="720" height="1600" alt="Tugas9-MultiTurnChat" src="ISI_LINK_SCREENSHOT_MULTI_TURN" /> | <img width="720" height="1600" alt="Tugas9-SummarizeNote" src="ISI_LINK_SCREENSHOT_SUMMARIZE_NOTE" /> |
+| Chat AI menyimpan konteks percakapan. | AI merangkum isi note dari halaman detail. |
+
+| Suggest Category | Image Analysis Prompt |
+| :---: | :---: |
+| <img width="720" height="1600" alt="Tugas9-SuggestCategory" src="ISI_LINK_SCREENSHOT_SUGGEST_CATEGORY" /> | <img width="720" height="1600" alt="Tugas9-ImageAnalysis" src="ISI_LINK_SCREENSHOT_IMAGE_ANALYSIS" /> |
+| AI menyarankan kategori pada Add/Edit Note. | AI menganalisis deskripsi atau URL gambar. |
+
+| Error Handling | Profile Page |
+| :---: | :---: |
+| <img width="720" height="1600" alt="Tugas9-ErrorHandling" src="ISI_LINK_SCREENSHOT_ERROR_HANDLING" /> | <img width="720" height="1600" alt="Tugas9-Profile" src="ISI_LINK_SCREENSHOT_PROFILE" /> |
+| Error API/key/network ditampilkan dengan jelas. | Fitur Tugas 8 tetap dipertahankan. |
+
+---
+
 ## 🎯 Fitur Tugas 9
 
 ### ✅ Fitur AI Utama
@@ -232,30 +256,6 @@ composeApp/src/jvmMain/kotlin/org/example/project/config/ApiConfig.jvm.kt
 
 ---
 
-## 📸 Screenshot Dokumentasi
-
-| Notes Page | AI Assistant Page |
-| :---: | :---: |
-| <img width="720" height="1600" alt="Tugas9-NotesPage" src="ISI_LINK_SCREENSHOT_NOTES_PAGE" /> | <img width="720" height="1600" alt="Tugas9-AIAssistant" src="ISI_LINK_SCREENSHOT_AI_ASSISTANT" /> |
-| Notes tetap menjadi fitur utama aplikasi. | Halaman AI Assistant dengan quick actions dan chat input. |
-
-| Multi-turn Conversation | Summarize Note |
-| :---: | :---: |
-| <img width="720" height="1600" alt="Tugas9-MultiTurnChat" src="ISI_LINK_SCREENSHOT_MULTI_TURN" /> | <img width="720" height="1600" alt="Tugas9-SummarizeNote" src="ISI_LINK_SCREENSHOT_SUMMARIZE_NOTE" /> |
-| Chat AI menyimpan konteks percakapan. | AI merangkum isi note dari halaman detail. |
-
-| Suggest Category | Image Analysis Prompt |
-| :---: | :---: |
-| <img width="720" height="1600" alt="Tugas9-SuggestCategory" src="ISI_LINK_SCREENSHOT_SUGGEST_CATEGORY" /> | <img width="720" height="1600" alt="Tugas9-ImageAnalysis" src="ISI_LINK_SCREENSHOT_IMAGE_ANALYSIS" /> |
-| AI menyarankan kategori pada Add/Edit Note. | AI menganalisis deskripsi atau URL gambar. |
-
-| Error Handling | Profile Page |
-| :---: | :---: |
-| <img width="720" height="1600" alt="Tugas9-ErrorHandling" src="ISI_LINK_SCREENSHOT_ERROR_HANDLING" /> | <img width="720" height="1600" alt="Tugas9-Profile" src="ISI_LINK_SCREENSHOT_PROFILE" /> |
-| Error API/key/network ditampilkan dengan jelas. | Fitur Tugas 8 tetap dipertahankan. |
-
----
-
 ## 🧪 Demo States
 
 | State | Cara Demo |
@@ -306,9 +306,3 @@ composeApp/src/jvmMain/kotlin/org/example/project/config/ApiConfig.jvm.kt
 | Fitur Tugas 8 tetap berjalan | ✅ |
 
 ---
-
-## 📌 Catatan Keamanan
-
-API key tidak ditanam langsung di source code. Gunakan `local.properties` untuk menyimpan key asli dan pastikan file tersebut tidak ikut ter-commit ke repository.
-
-Jika API key pernah dibagikan secara publik, buat API key baru di Google AI Studio sebelum push repository final.
